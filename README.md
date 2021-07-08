@@ -7,7 +7,7 @@ Discord bot that will join and play their intro song
   * discord
   * youtube-dl
   * pynacl
-  * dotenv
+  * python-dotenv
   * flask
 
 # Running

@@ -1,7 +1,7 @@
 ## busta
 Discord bot that will join and play their intro song
 
-# Install dependencies 
+## Install dependencies 
 Run `pip install requirements.txt` in the root directory
 
 ## Environment setup

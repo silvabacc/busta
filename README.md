@@ -10,6 +10,8 @@ Discord bot that will join and play their intro song
   * python-dotenv
   * flask
 
+# Install dependencies 
+`pip install requirements.txt`
 
 ## Environment setup
 Use a `.env` file for discord tokens. The file should look like this

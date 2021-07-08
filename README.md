@@ -1,15 +1,6 @@
 ## busta
 Discord bot that will join and play their intro song
 
-# Set Up
-* Python
-* Python Packages:
-  * discord
-  * youtube-dl
-  * pynacl
-  * python-dotenv
-  * flask
-
 # Install dependencies 
 Run `pip install requirements.txt` in the root directory
 

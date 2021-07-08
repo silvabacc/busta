@@ -26,6 +26,7 @@ def updateUserSongs(user, youtubeURL):
         userSongs[user] = youtubeURL
         jsonFile.seek(0)
         jsonFile.write(json.dumps(userSongs))
+        jsonFile.truncate()
         jsonFile.close()
         
 def getUserSong(user):

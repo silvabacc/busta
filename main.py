@@ -18,7 +18,9 @@ def fetchUserSongs():
         return userSongs
     
 def checkURL(url):    
-    return "www.youtube.com" in url
+    if "youtube.com" in url or "youtu.be" in url:
+        return True
+    return False
 
 def updateUserSongs(user, youtubeURL):
     with open("userSongs.json", "r+") as jsonFile:

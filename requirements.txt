@@ -21,3 +21,4 @@ typing-extensions==3.10.0.0
 Werkzeug==2.0.1
 yarl==1.6.3
 youtube-dl==2021.6.6
+replit==3.2.4

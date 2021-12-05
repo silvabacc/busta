@@ -9,17 +9,21 @@ from dotenv import dotenv_values
 
 config = dotenv_values(".env")
 
+
 def checkURL(url):
     if "youtube.com" in url or "youtu.be" in url:
         return True
     return False
 
+
 command_prefix = '!'
 bot = commands.Bot(command_prefix)
+
 
 @bot.event
 async def on_ready():
     print('Logged on as {0}!'.format(bot.user))
+
 
 @bot.event
 async def on_voice_state_update(member, before, after):
@@ -32,12 +36,14 @@ async def on_voice_state_update(member, before, after):
         return
 
     YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
-    FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
+    FFMPEG_OPTIONS = {
+        'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
 
     author = member.name
     voice_channel = after.channel
     url = db[author]
-    if (url == None): return
+    if (url == None):
+        return
     vc = await voice_channel.connect()
 
     if not vc.is_playing():
@@ -53,7 +59,8 @@ async def on_voice_state_update(member, before, after):
 @bot.command()
 async def setsong(ctx):
     author = ctx.author.name
-    youtubeURL = ctx.message.content.replace(command_prefix + ctx.command.name, '').strip()
+    youtubeURL = ctx.message.content.replace(
+        command_prefix + ctx.command.name, '').strip()
 
     isYoutubeLink = checkURL(youtubeURL)
     # if not youtube link, return nothing
@@ -63,9 +70,13 @@ async def setsong(ctx):
     db[author] = youtubeURL
     await ctx.channel.send("Added your song!")
 
+
 @bot.command()
 async def toggle(ctx):
-    db[ctx.author.name + "_preferences"] = not db[ctx.author.name + "_preferences"]
+    try:
+        db[ctx.author.name + "_preferences"] = not db[ctx.author.name + "_preferences"]
+    except:
+        db[ctx.author.name + "_preferences"] = True
 
     if db[ctx.author.name + "_preferences"]:
         await ctx.channel.send('Your intro song is now enabled')

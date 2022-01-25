@@ -15,6 +15,7 @@ if(len(config) == 0):
     print('Setting up deployment environment variables and imports')
     from replit import db  
     token = os.environ['TOKEN']
+    keep_alive()
 else:
     print('Setting up local development environment variables and imports')
     from replit import Database 
@@ -87,5 +88,4 @@ async def toggle(ctx):
   else:
       await ctx.channel.send('Your intro song is now disabled')
 
-#keep_alive() #enable this in deployment
 bot.run(token)

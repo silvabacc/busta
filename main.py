@@ -3,12 +3,23 @@ from youtube_dl import YoutubeDL
 from discord import FFmpegPCMAudio
 from asyncio import sleep
 from keep_alive import keep_alive
-from replit import db
+import os
 
 from dotenv import dotenv_values
-
 config = dotenv_values(".env")
 
+token = None
+
+if(len(config) == 0):
+    print("If you're developing locally, please set up .env and follow readME")
+    print('Setting up deployment environment variables and imports')
+    from replit import db  
+    token = os.environ['TOKEN']
+else:
+    print('Setting up local development environment variables and imports')
+    from replit import Database 
+    token = config['TOKEN']
+    db = Database(db_url=config['REPLIT_DB_URL']) 
 
 def checkURL(url):
     if "youtube.com" in url or "youtu.be" in url:
@@ -76,5 +87,5 @@ async def toggle(ctx):
   else:
       await ctx.channel.send('Your intro song is now disabled')
 
-keep_alive()
-bot.run(config['TOKEN'])
+#keep_alive() #enable this in deployment
+bot.run(token)

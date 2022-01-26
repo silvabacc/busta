@@ -10,6 +10,9 @@ config = dotenv_values(".env")
 
 token = None
 
+command_prefix='!'
+bot = commands.Bot(command_prefix)
+
 if(len(config) == 0):
     print("If you're developing locally, please set up .env and follow readME")
     print('Setting up deployment environment variables and imports')
@@ -26,9 +29,6 @@ def checkURL(url):
     if "youtube.com" in url or "youtu.be" in url:
         return True
     return False
-      
-command_prefix='!'
-bot = commands.Bot(command_prefix)
 
 @bot.event
 async def on_ready():

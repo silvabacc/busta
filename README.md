@@ -25,4 +25,5 @@ Run `py main.py` in root directory
 
 ## Commands
 `!toggle` to toggle your intro song
+
 `!setsong <youtube url>` to set your intro song. URL must be from Youtube

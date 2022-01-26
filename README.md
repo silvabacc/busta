@@ -1,5 +1,5 @@
 ## busta
-Discord bot that will join and play their intro song
+Discord bot that will join and play user's intro song
 
 ## Deployment
 This application is deployed to Replit. It also makes use of the Replit database
@@ -22,3 +22,7 @@ Use a `.env` file for discord tokens. The file should look like this
     
 ## Running
 Run `py main.py` in root directory
+
+## Commands
+`!toggle` to toggle your intro song
+`!setsong <youtube url>` to set your intro song. URL must be from Youtube
